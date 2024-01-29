@@ -13,24 +13,28 @@ a{
 
 }
 header{
-    width: 1140px;
-    max-width: 80%;
+    width: 100%;
     margin: auto;
     height: 50px;
     display: flex;
     align-items: center;
     position: relative;
-    z-index: 100;
+    z-index: 110;
+    background-color: #000;
 }
 header a{
     margin-right: 40px;
+    font-size: 10px;
+    font-family: Sixtyfour;
+    font-weight: 800;
+    color: rgb(255, 255, 255);
 }
 /* carousel */
 .carousel{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    margin: -50px;
+    margin-top: 10px;
     position: relative;
 
 }
@@ -47,29 +51,39 @@ header a{
 .carousel .list .item .content{
     position: absolute;
     top: 20%;
-    width: 1140px;
-    max-width: 80%;
+    width: 100%;
+    max-width: 90%;
     left: 50%;
     transform: translate(-50%);
     padding-right: 30%;
     box-sizing: border-box;
     color: aliceblue;
     text-shadow: 0 5px 10px black;
+
 }
 .carousel .list .item .content .author{
     font-weight: bold;
     letter-spacing: 5px;
-    font-size: 30px;
-
+    font-size: 80px;
 }
 .carousel .list .item .content .title,
 .carousel .list .item .content .topic{
     font-weight: bold;
-    font-size: 3em;
+    font-size: 45px;
     list-style: 1.3em;
+    
 }
 .carousel .list .item .content .topic{
-    color: chartreuse;
+    color: rgb(0, 255, 179);
+    font-family: Sixtyfour;
+    margin: 30px;
+}
+.carousel .list .item .content .des{
+    font-size: 20px;
+    color: rgb(234, 255, 0);
+    font-family: Poppins;
+    max-height: 90px;
+    overflow: hidden;
 }
 .carousel .list .item .content .buttons{
     display: grid;
@@ -95,6 +109,7 @@ header a{
     position: absolute;
     bottom:50px;
     left: 50%;
+    bottom: 50px;
     width: max-content;
     z-index: 100;
     display: flex;
@@ -131,19 +146,19 @@ header a{
     width: 300px;
     max-width: 30%;
     display: flex;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
 }
 .arrows button{
-    width:40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    background-color: #eee4;
+    background-color: rgba(0, 0, 0, 0.5);
     border: none;
     font-family: monospace;
     color: #fff;
     font-weight: bold;
-    font-size: large;
+    font-size: 30px;
     transition: .5s;
     z-index: 100;
 }
@@ -187,11 +202,12 @@ header a{
     animation-delay: 1.8s;
 }
 /* effect of next click */
-.carousel .next{
+.carousel.next .list .item:nth-child(1) img{
     width: 150px;
     height: 220px;
     position: absolute;
     left: 50%;
+    bottom: 0px;
     border-radius: 20px;
     animation: showImage 0.5s linear 1 forwards;
 
@@ -206,7 +222,7 @@ header a{
         
     }
 }
-.caraousel.next .thumbnail .item:nth-last-chil(1){
+.carousel.next .thumbnail .item:nth-last-child(1){
     width: 0;
     overflow: hidden;
     animation: showThumbnail .5s linear 1 forwards;
@@ -241,22 +257,22 @@ header a{
         width: 150px;
         height: 220px;
         border-radius: 20px;
-        left:50%;
+        left: 50%;
         bottom: 50px;
     }
 }
-.caraousel.prev .thumbnail .item:nth-child(1){
+.carousel.prev .thumbnail .item:nth-child(1){
     width: 0;
     overflow: hidden;
     opacity: 0;
     animation: showThumbnail 0.5s linear 1 forwards;
 
 }
-.caraousel.prev .list .item:nth-child(2) .author,
-.caraousel.prev .list .item:nth-child(2) .title,
-.caraousel.prev .list .item:nth-child(2) .topic,
-.caraousel.prev .list .item:nth-child(2) .des,
-.caraousel.prev .list .item:nth-child(2) .buttons{
+.carousel.prev .list .item:nth-child(2) .author,
+.carousel.prev .list .item:nth-child(2) .title,
+.carousel.prev .list .item:nth-child(2) .topic,
+.carousel.prev .list .item:nth-child(2) .des,
+.carousel.prev .list .item:nth-child(2) .buttons{
     animation: contentOut 1.5s linear 1 forwards;
 }
 @keyframes contentOut {
@@ -266,8 +282,8 @@ header a{
         opacity:0;
     }    
 }
-.caraousel.next .arrows button,
-.caraousel.prev .arrows button{
+.carousel.next .arrows button,
+.carousel.prev .arrows button{
     pointer-events: none;
 }
 /* time */
@@ -280,8 +296,8 @@ header a{
     top: 0;
     left: 0;
 }
-.caraousel.next .time,
-.caraousel.prev .time{
+.carousel.next .time,
+.carousel.prev .time{
     width: 100%;
     animation: timeRunning 2s linear 1 forwards;
 }
@@ -292,12 +308,32 @@ header a{
 }
 
 /* make responsive for mobile */
-@media screen and (max-width: 678px){
+@media screen and (max-width: 765px){
+    header{
+        flex-direction: row-reverse;
+        justify-content: center;
+        
+    }
+    header a{
+        margin-inline: 10px;
+    }
     .carousel .list .item .content{
         padding-right: 0;
         margin-left: 5%;
+        top: 50px;
+    }
+    .carousel .list .item .content .author{
+        font-size: 40px;
     }
     .carousel .list .item .content .title{
         font-size: 30px;
+        margin: 0;
+    }
+    .arrows button{
+        width:40px;
+        height: 40px;
+    }
+    .arrows button{
+        font-size: large;
     }
 }
