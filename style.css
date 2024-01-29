@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Honk&family=Poppins:wght@300;400;500;600;700;800;900&family=Rubik+Glitch+Pop&family=Sixtyfour&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Foldit:wght@100;200;300;400;500;600;700;800;900&family=Honk&family=Poppins:wght@200;300;400;500;600;700;800&family=Sixtyfour&display=swap');
 
 body{
     font-family: 'Honk','poppins';
@@ -58,13 +58,14 @@ header a{
 }
 .carousel .list .item .content .author{
     font-weight: bold;
-    letter-spacing: 10px;
+    letter-spacing: 5px;
+    font-size: 30px;
 
 }
 .carousel .list .item .content .title,
 .carousel .list .item .content .topic{
     font-weight: bold;
-    font-size: 5em;
+    font-size: 3em;
     list-style: 1.3em;
 }
 .carousel .list .item .content .topic{
@@ -114,7 +115,9 @@ header a{
 }
 .thumbnail .item .content{
     position: absolute;
-    inset: 0 10px 10px 10px;
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
 
 }
 .thumbnail .item .content .title{
@@ -285,5 +288,16 @@ header a{
 @keyframes timeRunning{
     to{
         width: 0;
+    }
+}
+
+/* make responsive for mobile */
+@media screen and (max-width: 678px){
+    .carousel .list .item .content{
+        padding-right: 0;
+        margin-left: 5%;
+    }
+    .carousel .list .item .content .title{
+        font-size: 30px;
     }
 }
