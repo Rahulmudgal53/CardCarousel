@@ -21,9 +21,11 @@ header{
     position: relative;
     z-index: 110;
     background-color: #000;
+    display: flex;
+    flex-direction: row-reverse;
 }
 header a{
-    margin-right: 40px;
+    margin-inline: 40px;
     font-size: 10px;
     font-family: Sixtyfour;
     font-weight: 800;
@@ -32,7 +34,7 @@ header a{
 /* carousel */
 .carousel{
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     overflow: hidden;
     margin-top: 10px;
     position: relative;
@@ -50,9 +52,9 @@ header a{
 }
 .carousel .list .item .content{
     position: absolute;
-    top: 20%;
+    top: 10%;
     width: 100%;
-    max-width: 90%;
+    max-width: 80%;
     left: 50%;
     transform: translate(-50%);
     padding-right: 30%;
